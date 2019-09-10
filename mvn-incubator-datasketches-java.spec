@@ -4,12 +4,14 @@
 #
 Name     : mvn-incubator-datasketches-java
 Version  : 0.9.0
-Release  : 2
+Release  : 3
 URL      : https://github.com/apache/incubator-datasketches-java/archive/sketches-0.9.0.tar.gz
 Source0  : https://github.com/apache/incubator-datasketches-java/archive/sketches-0.9.0.tar.gz
-Source1  : https://repo.maven.apache.org/maven2/com/yahoo/datasketches/sketches-core/0.9.0/sketches-core-0.9.0.jar
-Source2  : https://repo.maven.apache.org/maven2/com/yahoo/datasketches/sketches-core/0.9.0/sketches-core-0.9.0.pom
-Source3  : https://repo.maven.apache.org/maven2/com/yahoo/datasketches/sketches/0.9.0/sketches-0.9.0.pom
+Source1  : https://repo.maven.apache.org/maven2/com/yahoo/datasketches/memory/0.9.0/memory-0.9.0.jar
+Source2  : https://repo.maven.apache.org/maven2/com/yahoo/datasketches/memory/0.9.0/memory-0.9.0.pom
+Source3  : https://repo.maven.apache.org/maven2/com/yahoo/datasketches/sketches-core/0.9.0/sketches-core-0.9.0.jar
+Source4  : https://repo.maven.apache.org/maven2/com/yahoo/datasketches/sketches-core/0.9.0/sketches-core-0.9.0.pom
+Source5  : https://repo.maven.apache.org/maven2/com/yahoo/datasketches/sketches/0.9.0/sketches-0.9.0.pom
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0
@@ -49,14 +51,20 @@ license components for the mvn-incubator-datasketches-java package.
 %install
 mkdir -p %{buildroot}/usr/share/package-licenses/mvn-incubator-datasketches-java
 cp LICENSE.md %{buildroot}/usr/share/package-licenses/mvn-incubator-datasketches-java/LICENSE.md
-mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/yahoo/datasketches/sketches-core/0.9.0
-cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/com/yahoo/datasketches/sketches-core/0.9.0/sketches-core-0.9.0.jar
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/yahoo/datasketches/memory/0.9.0
+cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/com/yahoo/datasketches/memory/0.9.0/memory-0.9.0.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/yahoo/datasketches/memory/0.9.0
+cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/com/yahoo/datasketches/memory/0.9.0/memory-0.9.0.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/yahoo/datasketches/sketches-core/0.9.0
-cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/com/yahoo/datasketches/sketches-core/0.9.0/sketches-core-0.9.0.pom
+cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/com/yahoo/datasketches/sketches-core/0.9.0/sketches-core-0.9.0.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/yahoo/datasketches/sketches-core/0.9.0
+cp %{SOURCE4} %{buildroot}/usr/share/java/.m2/repository/com/yahoo/datasketches/sketches-core/0.9.0/sketches-core-0.9.0.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/yahoo/datasketches/sketches/0.9.0
-cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/com/yahoo/datasketches/sketches/0.9.0/sketches-0.9.0.pom
+cp %{SOURCE5} %{buildroot}/usr/share/java/.m2/repository/com/yahoo/datasketches/sketches/0.9.0/sketches-0.9.0.pom
 
 
 %files
@@ -64,6 +72,8 @@ cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/com/yahoo/datasketches/
 
 %files data
 %defattr(-,root,root,-)
+/usr/share/java/.m2/repository/com/yahoo/datasketches/memory/0.9.0/memory-0.9.0.jar
+/usr/share/java/.m2/repository/com/yahoo/datasketches/memory/0.9.0/memory-0.9.0.pom
 /usr/share/java/.m2/repository/com/yahoo/datasketches/sketches-core/0.9.0/sketches-core-0.9.0.jar
 /usr/share/java/.m2/repository/com/yahoo/datasketches/sketches-core/0.9.0/sketches-core-0.9.0.pom
 /usr/share/java/.m2/repository/com/yahoo/datasketches/sketches/0.9.0/sketches-0.9.0.pom
